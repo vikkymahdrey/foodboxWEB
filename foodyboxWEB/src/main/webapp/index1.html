@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>coming-soon</title>
+<meta name="fb_admins_meta_tag" content="">
+<link href="css/slider.css" rel="stylesheet"><!-- Include css file here-->
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'><!-- Including google font-->
+<script src="js/slider.js"></script>
+<script type="text/javascript">
+function validate(){
+	alert("hi foodybox");
+}
+
+</script>
+</head>
+<body >
+        
+       
+       <form name="enquiryForm" action="enquirySubmission" method="post"  >
+        		<div id="slider" style="right:-342px;">
+					<div id="sidebar" onclick="open_panel()"><img src="images/contact.png"></div>
+					<div id="header">
+							<h2>Enquiry form</h2>
+ 			
+					<input type="text" name="nameId" id="nameId"  placeholder="Full Name"/>
+					
+					<input type="text" name="emailId" id="emailId" placeholder="Email Address"/>
+					
+					<textarea name="msg" id="msg" placeholder="Message"></textarea>
+					
+					<button onclick="return validate()">Send Message</button>
+					
+					</div>
+					</div>
+		</form>			
+<!-- Sliding div ends here -->
+
+ 
+</body>
+</html>
