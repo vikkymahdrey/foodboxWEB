@@ -10,13 +10,12 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.zip.CRC32;
 
-import org.apache.log4j.Logger;
-
 import com.team.foodybox.exception.MightyAppException;
+import com.team.foodybox.logger.FoodyLogger;
 
 public class StringUtil {
 
-	private static Logger logger = Logger.getLogger(StringUtil.class);
+	private static FoodyLogger logger = FoodyLogger.getLogger(StringUtil.class);
 	
 	private StringUtil(){}
 	
@@ -88,7 +87,7 @@ public class StringUtil {
 				try {
 					br.close();
 				} catch (IOException e) {
-					logger.error(e);
+					logger.error(e, "Exception Occured While Closing Buffered Reader in Clob to String conversion");
 				}
 			}
 		}

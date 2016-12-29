@@ -1,114 +1,177 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>coming-soon</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
- <link href="css/slider.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'><!-- Including google font-->
-<script src="js/slider.js"></script>
+<title>Login</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+	<link href="//cdn.shopify.com/s/files/1/1198/3830/t/6/assets/theme.scss.css?10713448530586305152" rel="stylesheet" type="text/css" media="all" />
+	<link href="//cdn.shopify.com/s/files/1/1198/3830/t/6/assets/unslider.css?10713448530586305152" rel="stylesheet" type="text/css" media="all" />
+    <link href="//cdn.shopify.com/s/files/1/1198/3830/t/6/assets/unslider-dots.css?10713448530586305152" rel="stylesheet" type="text/css" media="all" />
+  	<link href="//cdn.shopify.com/s/files/1/1198/3830/t/6/assets/custom.scss.css?10713448530586305152" rel="stylesheet" type="text/css" media="all" />
+
+    
 <script type="text/javascript" src="js/jquery-latest.js"></script>
-<script type="text/javascript">
 
-
-function resizeIframe(obj) {
-  obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+<script  type="text/javascript">
+function browserIdentity()
+{
+	if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){ //test for MSIE x.x;
+		 var ieversion=new Number(RegExp.$1) // capture x.x portion and store as a number
+		  
+		   if (ieversion<=7)
+		 	 alert("You are using older version of Internet Explorer. Please upgrade your browser.");
+		 
 }
-
+}
+ $(document).ready(function() {
+	$( "#uname" ).click(function() {
+		var passvalid= document.getElementById("sts").value;
+		
+		if(passvalid=="" || passvalid=="null"){
+			return true;
+		}else{
+			window.location.reload();
+		}
+			
+		});
+	}); 
 
 function validate() {
-    var name = $("input[name=nameId]").val();
-    var email = $("input[name=emailId]").val();
-    var msg = $("textarea[name=msg]").val();
-    var atpos = email.indexOf("@");
-    var dotpos = email.lastIndexOf(".");
-    var flag = true;
+	var uname = document.getElementById("uname").value;
+	var password = document.getElementById("pass").value;
+	document.getElementById("namevalid").innerHTML = "";
+	document.getElementById("passvalid").innerHTML = "";
+	var passvalid= document.getElementById("sts").value;
 	
-	if(name=="" )
-		{
-		document.getElementById("namevalid").innerHTML = "Please Specify Name!";
-		document.getElementById("nameId").focus();
-		flag=false;
-		
-		}
-	else if(email==""){
-		document.getElementById("namevalid").innerHTML = "";
-		document.getElementById("emailvalid").innerHTML = "Please Specify Email Address!";
-		document.getElementById("emailId").focus();
-		flag=false;
-		
-	}else if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
-		document.getElementById("emailvalid").innerHTML = "";
-		document.getElementById("emailvalid").innerHTML = "Not a valid e-mail address!";
-		document.getElementById("emailId").focus();
-		flag=false;
-    }else if(msg==""){
-		document.getElementById("emailvalid").innerHTML = "";
-		document.getElementById("msgvalid").innerHTML = "Please Specify Message!";
-		 document.getElementById("msg").focus();
-		flag=false;
+	if(passvalid!="" && passvalid!="null"){
+		window.location.reload();
+		return false;
+	}else if (uname.length < 1 && password.length < 1) {
+		document.getElementById("passvalid").innerHTML = "Please enter user name/password!";
+		document.getElementById("uname").focus(); 
+		return false;
+	}else if (uname.length < 1) {
+		document.getElementById("namevalid").innerHTML = "Please enter user name!";
+		document.getElementById("uname").focus(); 
+		return false;
+	}else if (password.length < 1) {
+		document.getElementById("passvalid").innerHTML = "Please enter password!";
+		document.getElementById("pass").focus(); 
+		return false;
+	}  else{
+		return true;
 	}
-			
-	return flag;
-
-} 
-
+	
+}
 </script>
+   
 </head>
-<body >
-	 <div class="wrapper">
-	 
-	 	
-	 	 <img id="comp-iw92x8m0imgimage" alt="" src="https://static.wixstatic.com/media/0b6563_03859d23dcd341a7bcd24ff1d7717c16~mv2_d_1643_1234_s_2.png/v1/fill/w_300,h_226,al_c,usm_0.66_1.00_0.01/0b6563_03859d23dcd341a7bcd24ff1d7717c16~mv2_d_1643_1234_s_2.png" 
-        	style="width: 250px; height: 200px; object-fit: cover;" 
-        	data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$cjg9.1.$comp-iw92x8m0.0.0.$image">
-        	<!-- <h1>Coming Soon!</h1> -->
-      	
-      	 <h4></h4>
-      	 
-      	  
-      	 	<iframe src="https://www.youtube.com/embed/WSkomPAT4ac"   width=460 height=260 allowfullscreen></iframe>&nbsp;&nbsp;&nbsp;&nbsp;
-      	 	
-      	 	<p id="bg"> <b>Contact Us</b> Email: dhavan@thefoodybox.com , Phone: +91 9986855886</p>
 
-			<h3 id="vcount" style="font-familty=Arial;" ><u>Visitor# <%=(String)request.getAttribute("visitorCount") %></u></h3>
-    	
-    	
-    	
-    	 
-		<!-- <div>
-		<span style="font-weight:bold">Coming Soon!</span>
-		</div> -->
-		
-        <form name="enquiryForm" action="enquirySubmission" method="post"  >
-        		<div id="slider" style="right:-342px;">
-					<div id="sidebar" onclick="open_panel()"><img src="images/contact.png"></div>
-					<div id="header">
-							<h2 class="enquiry" style="font-family:Arial;">Enquiry Form</h2>
- 			
-					<input type="text" name="nameId" id="nameId"  placeholder="Full Name"/>
-					<label id="namevalid" style="color: red;" ></label>
+
+<body class="login-bg">
+	<div class="wrapper">
+	<%@include file="Header.jsp"%> 
+		<div class="container">
+	
+					<%
+						response.setHeader("Cache-Control","no-cache, no-store, must-revalidate");
+						response.setHeader("Pragma", "co-cache");
+						response.setDateHeader("Expires", 0);
+  
+						String message="";
+						
+						try{
+							message=request.getParameter("message");
+							if(message!=null&&!message.equals(""))
+									{
+							}
+							else
+								{						
+							message = "";
+							message = request.getAttribute("status").toString();
+						session.setAttribute("status", "");
+								}
+				
+						}catch(Exception e)
+						{
+							;
+						}
 					
-					<input type="text" name="emailId" id="emailId" placeholder="Email Address"/>
-					<label id="emailvalid" style="color: red;" ></label>
-					
-					<input type="text" name="contactId" id="contactId" placeholder="Contact Number (Optional)"/>
-					
-					<textarea class="msg" name="msg" id="msg" placeholder="Message"></textarea>
-					<label id="msgvalid" style="color: red;" ></label>
-					
-					<button onclick="return validate()">Send Message</button>
-					
+					%>	
+				
+						
+		<div class="login-input-wrap">
+			<div class="login-input-border-wrap">
+			<form action="login" name="user_validation_form" id="user_validation_form" method="post" onsubmit="return validate()">		
+				<div class="row">
+					<div class="col-sm-12">
+						<h6 class="text-regular text-uppercase" style="text-decoration:blink;"><b><i>Please Login</i></b></h6>
+						<input type="text" name="uname" id="uname"  placeholder="Login ID" class="form-control login-fields username mar-top-20" /><label id="namevalid" style="color: red;"></label>
+						<input type="password" name="pass" id="pass" placeholder="Password"  class="form-control login-fields password mar-top-10" /><label id="passvalid" style="color: red;"></label>
+						<label id="passvalid" style="color: red;" ><%=message %></label>
+						<input type="hidden" name="sts" id="sts" value="<%=(String)request.getAttribute("status")%>">
 					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-6 mar-top-25">
+						<a href="forgotPassword" class="text-grey link-underline">Forgot Password?</a>
 					</div>
-		</form>			 
-		
-		 </div>
-<!-- Sliding div ends here -->
+					
+					<div class="col-sm-6 mar-top-20 text-right">
+						<input type="submit" value="Login" class="btn btn-blue"/>
+					</div>
+					
+					
+				</div>
+			</form>
+		</div>
+	
+  </div>
+	</div>
+	
+  </div>
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	<script>
+	
+	var docHeight = $(window).height();
+	//alert(docHeight);
+	var footerHeight = $(".login-footer").outerHeight();
+	var headerHeight = $(".header-wrap-login").outerHeight() + 50;
+	var contentheight = $(".login-bg .container").outerHeight();
+	
+	
+	
+	$(window).on('resize', function () {	
+		$(".wrapper").css({
+			"min-height" : $(window).height(),
+			"padding-bottom" : (footerHeight + 30)
+		});				
+		var marginValue = ($(window).height() - footerHeight - headerHeight - contentheight)/2;		
+		function loginMargin() {
+			if (marginValue > 0) {
+				$(".login-bg .container").css({
+					"margin-top": marginValue
+				});
+			}
+		}
+		loginMargin();
+	});			
+	$( document ).ready(function() {		
+		$(window).trigger('resize');		
+	});	
+	</script>
+	
+</div>	
 
-</body>
+	
+  </body>
 </html>

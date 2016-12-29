@@ -4,14 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
+import com.team.foodybox.logger.FoodyLogger;
+
 public class SpringPropertiesUtil extends PropertyPlaceholderConfigurer {
 
-	private static final Logger logger = Logger.getLogger(SpringPropertiesUtil.class);
+	private static final FoodyLogger logger = FoodyLogger.getLogger(SpringPropertiesUtil.class);
 	
 	private static Map<String, String> propertiesMap;
     // Default as in PropertyPlaceholderConfigurer
@@ -36,7 +37,7 @@ public class SpringPropertiesUtil extends PropertyPlaceholderConfigurer {
     }
 
     public static String getProperty(String name) {
-    	logger.info("[ Property Name ] ");
+    	logger.info("[ Property Name ] ", name);
         return propertiesMap.get(name).toString();
     }
 }
